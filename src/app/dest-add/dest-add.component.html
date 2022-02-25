@@ -1,0 +1,40 @@
+<div class="card-box">
+    <form [formGroup]="designationform" (ngSubmit)="SaveDes()">
+        <div class="row" style="text-align: center;display: block;">
+            <h2>Add/Edit Designation</h2>
+        </div>
+
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+                <div class="form-group">
+                    <label for="txtcode">Code</label>
+                    <input type="text" id="txtcode" class="form-control" formControlName="code" name="code"
+                        autocomplete="off" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input title="name" type="text" class="form-control" formControlName="name" name="name"
+                        autocomplete="off" />
+                    <span *ngIf="name && name.invalid && name.touched" class="error">Please enter name</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-lg-3 col-lg-2">
+                <br>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <br>
+                <span class={{messageclass}}>{{message}}</span>
+            </div>
+        </div>
+
+    </form>
+</div>
