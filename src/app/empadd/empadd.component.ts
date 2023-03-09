@@ -28,7 +28,7 @@ export class EmpaddComponent implements OnInit {
   }
 
   employeeform = new FormGroup({
-    code: new FormControl({ value: '', disabled: true }),
+    id: new FormControl({ value: '', disabled: true }),
     name: new FormControl('', Validators.required),
     email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
     phone: new FormControl('', Validators.required),
@@ -47,7 +47,7 @@ export class EmpaddComponent implements OnInit {
       //console.log(this.employeeform.value);
       this.service.SaveEmployee(this.employeeform.value).subscribe(result => {
         this.saveresp = result;
-        if (this.saveresp.result == 'pass') {
+        if (this.saveresp.result == 'pass' || this.saveresp.id != '') {
           this.message = "Saved Sucessfully";
           this.messageclass = 'sucess';
           this.employeeform.reset();
@@ -68,7 +68,7 @@ export class EmpaddComponent implements OnInit {
       this.EditData = result;
       if (this.EditData != null) {
         this.employeeform = new FormGroup({
-          code: new FormControl(this.EditData.code),
+          id: new FormControl(this.EditData.id),
           name: new FormControl(this.EditData.name),
           email: new FormControl(this.EditData.email),
           phone: new FormControl(this.EditData.phone),

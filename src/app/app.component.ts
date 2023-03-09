@@ -1,5 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DestService } from './service/dest.service';
 import { LoginService } from './service/login.service';
 
 @Component({
@@ -14,8 +15,10 @@ export class AppComponent implements OnInit, DoCheck {
   displayuser = false;
   currentrole: any;
   menulist: any;
+  loggedInuser = '';
+  isNavbarCollapsed=true;
 
-  constructor(private service: LoginService, private route: Router) {
+  constructor(private service: LoginService, private route: Router, private destService: DestService) {
   }
   ngOnInit(): void {
     this.service.updatemenu.subscribe(res => {
@@ -32,6 +35,9 @@ export class AppComponent implements OnInit, DoCheck {
     } else {
       this.displaymenu = true
     }
+    this.destService.RefreshRequired.subscribe(response => {
+      this.LoadMenu();
+    })
   }
 
   MenuDisplay() {
@@ -48,8 +54,14 @@ export class AppComponent implements OnInit, DoCheck {
       this.service.GetMenubyrole(this.currentrole).subscribe(result => {
         this.menulist = result;
         //console.log(this.menulist);
+        this.loggedInuser=this.service.Getunique_namebyToken(this.service.GetToken());
       });
     }
+  }
+
+  logout() {
+    localStorage.clear();
+    this.route.navigate(['login']);
   }
 
 }

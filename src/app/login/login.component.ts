@@ -12,7 +12,10 @@ import { LoginService } from '../service/login.service';
 export class LoginComponent implements OnInit {
   responsedata: any;
   constructor(private service: LoginService, private route: Router) {
-    localStorage.clear();
+   // localStorage.clear();
+     if (this.service.IsLoggedIn()) {
+      this.route.navigate(['']);
+    }
   }
 
   ngOnInit(): void {
@@ -28,6 +31,7 @@ export class LoginComponent implements OnInit {
       this.service.Proceedlogin(this.loginform.value).subscribe(result => {
         this.responsedata = result;
         if (this.responsedata != null) {
+          console.log(this.responsedata);
           localStorage.setItem('token', this.responsedata.jwtToken);
           localStorage.setItem('refreshtoken', this.responsedata.refreshToken);
           this.service.updatemenu.next();

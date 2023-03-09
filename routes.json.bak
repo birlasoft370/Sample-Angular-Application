@@ -1,0 +1,10 @@
+{
+	"/": "/",
+	"/user/authenticate": "/user_authenticate",
+	"/User/GetMenubyRole/admin": "/getmenubyrole_admin",
+	"/User/GetMenubyRole/user": "/getmenubyrole_user",
+	"/User/GetMenubyRole/staff": "/getmenubyrole_staff",
+	"/Designation": "/Designation",
+	"/user/HaveAccess?*": "/user_Haveaccess",
+	"/Employee": "/Employee"
+}

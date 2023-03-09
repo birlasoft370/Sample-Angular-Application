@@ -1,0 +1,67 @@
+{
+  "user_authenticate": {
+    "jwtToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkbWludXNlciIsInJvbGUiOiJhZG1pbiIsIm5iZiI6MTY0NjAzMDQ0NSwiZXhwIjoxNjQ2MTEzMjQ1LCJpYXQiOjE2NDYwMzA0NDV9.0M8BTJqTmghuEKEPsEr3iIsJnuow3BhgqmN7GC8jP9g",
+    "refreshToken": "iiyfU7xF+994yE/mzggBDpzuiVP49Fo1QdLktV/QP5o="
+  },
+  "getmenubyrole_admin": [
+    {
+      "id": "about",
+      "name": "About",
+      "linkName": "about"
+    },
+    {
+      "id": "employee",
+      "name": "Employee",
+      "linkName": "employee"
+    },
+    {
+      "id": "user",
+      "name": "User",
+      "linkName": "user"
+    }
+  ],
+  "Designation": [
+    {
+      "id": "developer",
+      "code": "developer",
+      "name": "Angular Developer - 2"
+    },
+    {
+      "id": "Manager",
+      "code": "Manager",
+      "name": "Manager"
+    },
+    {
+      "id": "tester",
+      "code": "tester",
+      "name": "Test Lead 123"
+    }
+  ],
+  "user_Haveaccess": {
+    "keycode": null,
+    "result": "pass"
+  },
+  "Employee": [
+    {
+      "id": 1,
+      "name": "bala",
+      "email": "bala@gmail.com",
+      "phone": "9876543211",
+      "designation": "developer"
+    },
+    {
+      "id": 2,
+      "name": "krish",
+      "email": "krish@manager.com",
+      "phone": "0987656432",
+      "designation": "manager"
+    },
+    {
+      "id": 3,
+      "name": "test",
+      "email": "test@test.com",
+      "phone": "9876543210",
+      "designation": "tester"
+    }
+  ]
+}

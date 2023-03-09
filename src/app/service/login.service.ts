@@ -9,7 +9,11 @@ import { Subject } from 'rxjs';
 export class LoginService {
 
   tokenresp: any;
-  apiurl = 'http://localhost:41055/user/'
+
+  apiurl = 'http://localhost:41055/user/';//'http://localhost:5247/api/v1/example';
+  IsMockServer = false;
+
+  //apiurl = 'http://localhost:3004/user/';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -19,7 +23,13 @@ export class LoginService {
   }
 
   Proceedlogin(usercred: any) {
-    return this.http.post(this.apiurl + 'authenticate', usercred);
+    if (this.IsMockServer == true) {
+      return this.http.get(this.apiurl + 'authenticate');
+    }
+    else {
+      //return this.http.get(this.apiurl + 'getExamples', usercred);
+      return this.http.post(this.apiurl + 'authenticate', usercred);
+    }
   }
   IsLoggedIn() {
     return localStorage.getItem("token") != null;
@@ -45,7 +55,7 @@ export class LoginService {
   }
 */
   Logout() {
-    alert('Your session expired Or Invalid login credential')
+    alert('Your session expired')
     localStorage.clear();
     this.router.navigateByUrl('/login');
   }
@@ -77,5 +87,11 @@ export class LoginService {
 
   HaveAccess(role: any, menu: any) {
     return this.http.get(this.apiurl + 'HaveAccess?role=' + role + '&menu=' + menu);
+  }
+
+  Getunique_namebyToken(token: any) {
+    let _token = token.split('.')[1];
+    this.tokenresp = JSON.parse(atob(_token))
+    return this.tokenresp.unique_name;
   }
 }

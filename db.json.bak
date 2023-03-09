@@ -1,0 +1,44 @@
+{
+   "user_authenticate": {
+    "jwtToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImRlbW91c2VyIiwicm9sZSI6InVzZXIiLCJuYmYiOjE2NDYwMjg4MzUsImV4cCI6MTY0NjExMTYzNSwiaWF0IjoxNjQ2MDI4ODM1fQ.I-2oZoYgL0sL0fYGAsgij0C5OChAK9YVc38EoSflEZA",
+    "refreshToken": "t27KJL+L843DYLfjvw9+qMW/FG9y+CY58nOugZQ4A7Q=" 
+   },
+  "getmenubyrole_admin": [
+		{
+			#"id": "about",
+			"name": "About",
+			"linkName": "about"
+		},
+		{
+			"id": "employee",
+			"name": "Employee",
+			"linkName": "employee"
+		},
+		{
+			"id": "user",
+			"name": "User",
+			"linkName": "user"
+		}
+	],
+  "getmenubyrole_user": [
+	  {
+		"id": "about",
+		"name": "About",
+		"linkName": "about"
+	  },
+	  {
+		"id": "user",
+		"name": "User",
+		"linkName": "user"
+	  }
+	],
+  "getmenubyrole_staff":[],
+  "classical_artists": [
+    {
+      "name": "prestige"
+    },
+    {
+      "name": "columbia"
+    }
+  ]
+}

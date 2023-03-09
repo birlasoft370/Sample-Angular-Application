@@ -1,0 +1,10 @@
+.mr-auto,
+.mx-auto {
+  margin-right: auto !important;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+li > a.active {
+  background-color: gray;
+}

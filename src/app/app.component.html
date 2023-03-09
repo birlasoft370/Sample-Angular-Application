@@ -1,21 +1,62 @@
+<!--Reference https://gist.github.com/Ohtsu/f1c8467fb4c615a753316f5722580916 
+  && https://embed.plnkr.co/xH6VJo/ && https://www.codeply.com/go/P0G393rzfm-->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" *ngIf="displaymenu">
+  <img width="40" alt="Angular Logo" class="img-responsive cursor-pointer" routerLink=""
+    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+    (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-controls="navbarsExample04" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsExample04">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="designation" routerLinkActive="active">Designation</a>
+      </li>
+      <li class="nav-item" *ngFor="let item of menulist">
+        <a class="nav-link" routerLink="{{item.linkName}}" routerLinkActive="active">{{item.name}}</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link">Welcome <b>{{loggedInuser}}</b></a>
+      </li>
+      <li class="nav-item cursor-pointer">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--
 <div class="header" *ngIf="displaymenu">
   <img width="40" alt="Angular Logo"
     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
 
   <a routerLink="" class="menulink">Home</a>
-  <a routerLink="designation" class="menulink">Designation</a>
-  <!--Dynamic Menu By Rules-->
-  <a *ngFor="let item of menulist" routerLink="{{item.linkName}}" class="menulink">{{item.name}}</a>
-  <!--Static Menu By Rules-->
-  <!-- <a *ngIf="displayemployee" routerLink="employee" class="menulink">Employee</a>
+  <a routerLink="designation" routerLinkActive="btn btn-primary" class="menulink">Designation</a>
+  -->
+<!--Dynamic Menu By Rules-->
+<!-- <a *ngFor="let item of menulist" routerLink="{{item.linkName}}" routerLinkActive="btn btn-primary"
+    class="menulink">{{item.name}}</a> -->
+<!--Static Menu By Rules-->
+<!-- <a *ngIf="displayemployee" routerLink="employee" class="menulink">Employee</a>
   <a *ngIf="displayuser" routerLink="user" class="menulink">User</a> -->
-  <!--Default Menu No Rules-->
-  <!-- <a routerLink="employee" class="menulink">Employee</a>
+<!--Default Menu No Rules-->
+<!-- <a routerLink="employee" class="menulink">Employee</a>
   <a routerLink="customer" class="menulink">Customer</a>
   <a routerLink="user" class="menulink">User</a> -->
-  <!-- <a routerLink="customer" class="menulink">Customer</a>
+<!-- <a routerLink="customer" class="menulink">Customer</a>
   <a routerLink="about" class="menulink">About</a> -->
-  <a routerLink="login" style="float: right;" class="menulink">Logout</a>
-</div>
+<!-- <div style="float: right;margin-top: 6px">
+    <a class="menulink">Welcome <b>{{loggedInuser}}</b></a>
+    <a routerLink="login" class="menulink" (click)="logout()">Logout</a>
+  </div>
+</div> -->
 <br>
+<div class="clearfix"></div>
 <router-outlet></router-outlet>

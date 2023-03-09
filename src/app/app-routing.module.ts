@@ -26,7 +26,7 @@ const routes: Routes = [
       { path: '', component: DestListComponent },
       { path: 'create', component: DestAddComponent },
       { path: 'edit/:id', component: DestAddComponent }
-    ]
+    ], //canActivate: [AuthGuard] 
   },
   {
     path: 'employee', component: EmployeeComponent, children: [
